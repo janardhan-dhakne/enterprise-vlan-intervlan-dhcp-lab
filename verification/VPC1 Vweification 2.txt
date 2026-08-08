@@ -1,0 +1,29 @@
+
+VPCS> ip dhcp
+DORA IP 192.168.10.11/24 GW 192.168.10.1
+
+VPCS> show ip
+
+NAME        : VPCS[1]
+IP/MASK     : 192.168.10.11/24
+GATEWAY     : 192.168.10.1
+DNS         : 8.8.8.8  
+DHCP SERVER : 192.168.10.1
+DHCP LEASE  : 86395, 86400/43200/75600
+MAC         : 00:50:79:66:68:05
+LPORT       : 20000
+RHOST:PORT  : 127.0.0.1:30000
+MTU         : 1500
+
+VPCS> ping 192.168.40.11
+
+84 bytes from 192.168.40.11 icmp_seq=1 ttl=63 time=8.591 ms
+84 bytes from 192.168.40.11 icmp_seq=2 ttl=63 time=1.541 ms
+84 bytes from 192.168.40.11 icmp_seq=3 ttl=63 time=1.906 ms
+84 bytes from 192.168.40.11 icmp_seq=4 ttl=63 time=1.570 ms
+84 bytes from 192.168.40.11 icmp_seq=5 ttl=63 time=1.518 ms
+
+VPCS> trace 192.168.40.11
+trace to 192.168.40.11, 8 hops max, press Ctrl+C to stop
+ 1   192.168.10.1   0.957 ms  0.759 ms  0.906 ms
+ 2   *192.168.40.11   2.153 ms (ICMP type:3, code:3, Destination port unreachable)
